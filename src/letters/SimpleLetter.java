@@ -14,6 +14,7 @@ public class SimpleLetter extends Letter<Text> {
 	public SimpleLetter(Inhabitant sender, Inhabitant receiver, Text content) {
 		super(sender, receiver, content);
 	}
+	
 	@Override
 	public void action() {
 	}
@@ -22,6 +23,7 @@ public class SimpleLetter extends Letter<Text> {
 	public int cost() {
 		return this.costOfSP;
 	}
+	
 	@Override
 	public String description() {
 		return "a simple letter whose content is " + this.content;
