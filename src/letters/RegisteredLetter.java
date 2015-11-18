@@ -1,5 +1,7 @@
 package letters;
-
+/**
+* author hajar
+*/
 import entity.Inhabitant;
 
 public class RegisteredLetter extends Letter

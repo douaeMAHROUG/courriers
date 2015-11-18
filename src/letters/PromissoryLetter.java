@@ -1,5 +1,6 @@
 package letters;
-
+/** author hajar
+*/
 import content.Content;
 import entity.Inhabitant;
 
