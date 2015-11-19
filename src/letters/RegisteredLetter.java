@@ -8,9 +8,9 @@ import letters.SimpleLetter;
  *
  */
 
-public class RegistredLetter extends LetterDecorator{
+public class RegisteredLetter extends LetterDecorator{
 
-	public RegistredLetter(Letter<?> letter) {
+	public RegisteredLetter(Letter<?> letter) {
 		super(letter.getSender(), letter.getReceiver(), letter.content);
 		this.letter = letter;
 	}

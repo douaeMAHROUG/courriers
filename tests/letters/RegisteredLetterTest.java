@@ -17,7 +17,7 @@ public class RegisteredLetterTest extends LetterTest {
 		Inhabitant receiver = new Inhabitant("Receiver", new City("Paris"), new BankAccount(1500));
 		SimpleLetter simpleLetter = new SimpleLetter(sender, receiver, new TextContent("Bonjour"));
 		assertEquals(1, simpleLetter.cost());
-		RegistredLetter testedLetter = new RegistredLetter(simpleLetter);
+		RegisteredLetter testedLetter = new RegisteredLetter(simpleLetter);
 		assertEquals(16, testedLetter.cost());
 	}
 	
@@ -40,7 +40,7 @@ public class RegisteredLetterTest extends LetterTest {
 		Inhabitant sender = new Inhabitant("Sender", new City("Lille"), new BankAccount(1000));
 		Inhabitant receiver = new Inhabitant("Receiver", new City("Paris"), new BankAccount(1500));
 		SimpleLetter simpleLetter = new SimpleLetter(sender, receiver, new TextContent("Bonjour"));
-		return new RegistredLetter(simpleLetter);
+		return new RegisteredLetter(simpleLetter);
 	}
 
 }
@@ -54,7 +54,7 @@ class InhabitantNbLetterSent extends Inhabitant {
 	}
 }
 
-class RegisteredLetterNbLetterSent extends RegistredLetter {
+class RegisteredLetterNbLetterSent extends RegisteredLetter {
 
 	public RegisteredLetterNbLetterSent(Letter<?> letter) {
 		super(letter);
