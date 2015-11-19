@@ -1,4 +1,4 @@
-package tests.letters;
+package letters;
 
 import static org.junit.Assert.*;
 
