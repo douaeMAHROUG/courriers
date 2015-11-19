@@ -1,23 +1,24 @@
 package content;
-
+/**
+ * 
+ * @author hajar + mahroug
+ *
+ */
 public class MoneyContent implements Content {
 	
-	private int amount;
+	protected int amount;
 	
 	public MoneyContent(int amount) {
 		this.amount = amount;
 	}
 	
-	
-	
-	public String getContentDescription() {
-		return "";
-	}
-	
-	
-	
 	public int getAmount() {
 		return this.amount;
+	}
+
+	@Override
+	public String description() {
+		return "  "+amount;
 	}
 
 }

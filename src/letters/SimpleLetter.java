@@ -1,17 +1,16 @@
 package letters;
 import city.*;
-import content.Text;
+import content.TextContent;
 /**
  * 
  * @author mahroug
  *
  */
-
-public class SimpleLetter extends Letter<Text> {
+public class SimpleLetter extends Letter<TextContent> {
 
 	public final int costOfSP = 1;
 
-	public SimpleLetter(Inhabitant sender, Inhabitant receiver, Text content) {
+	public SimpleLetter(Inhabitant sender, Inhabitant receiver, TextContent content) {
 		super(sender, receiver, content);
 	}
 	
