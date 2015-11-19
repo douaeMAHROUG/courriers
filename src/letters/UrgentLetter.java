@@ -1,32 +1,28 @@
 package letters;
+/**
+ * 
+ * @author mahroug
+ *
+ */
 
-import city.Inhabitant;
-import content.Content;
-
-public class UrgentLetter extends Letter<Content> {
-
-	public UrgentLetter(Inhabitant sender, Inhabitant receiver, Content content) {
-		super(sender, receiver, content);
-		// TODO Auto-generated constructor stub
+public class UrgentLetter extends LetterDecorator {
+	
+	public UrgentLetter(Letter<?> letter) {
+		super(letter.getSender(), letter.getReceiver(), letter);
+		this.letter = letter;
 	}
-
-	@Override
-	public void action() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	@Override
 	public int cost() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.letter.cost() * 2;
+	}
+	@Override
+	public void action() {
+		this.letter.action();
 	}
 
 	@Override
 	public String description() {
-		// TODO Auto-generated method stub
-		return null;
+		return "an urgent letter whose content is a "+ this.letter.description();
 	}
-	
-
 }
