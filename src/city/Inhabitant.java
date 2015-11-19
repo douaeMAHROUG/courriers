@@ -32,5 +32,8 @@ public class Inhabitant {
 	public String toString() {
 		return "Inhabitant: "+this.name;
 	}
-
+	
+	public City getCity() {
+		return city;
+	}
 }

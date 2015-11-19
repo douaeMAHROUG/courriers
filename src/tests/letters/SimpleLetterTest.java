@@ -7,7 +7,7 @@ import org.junit.Test;
 import city.BankAccount;
 import city.City;
 import city.Inhabitant;
-import content.Text;
+import content.TextContent;
 import letters.Letter;
 import letters.SimpleLetter;
 
@@ -23,7 +23,7 @@ public class SimpleLetterTest extends LetterTest {
 	public Letter<?> createLetter() {
 		Inhabitant sender = new Inhabitant("Sender", new City("Lille"), new BankAccount(1000));
 		Inhabitant receiver = new Inhabitant("Receiver", new City("Paris"), new BankAccount(1500));
-		return new SimpleLetter(sender, receiver, new Text("Bonjour"));
+		return new SimpleLetter(sender, receiver, new TextContent("Bonjour"));
 	}
 
 }
