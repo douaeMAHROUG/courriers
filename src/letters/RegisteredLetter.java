@@ -3,8 +3,7 @@ package letters;
 import content.Content;
 import city.Inhabitant;
 
-public class RegisteredLetter extends Letter
-{
+public class RegisteredLetter extends Letter<Content> {
 
 	public RegisteredLetter(Inhabitant sender, Inhabitant receiver,
 			Content content) {

@@ -3,7 +3,7 @@ package letters;
 import city.Inhabitant;
 import content.Content;
 
-public class UrgentLetter extends Letter {
+public class UrgentLetter extends Letter<Content> {
 
 	public UrgentLetter(Inhabitant sender, Inhabitant receiver, Content content) {
 		super(sender, receiver, content);

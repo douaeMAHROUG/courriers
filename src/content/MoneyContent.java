@@ -8,13 +8,9 @@ public class MoneyContent implements Content {
 		this.amount = amount;
 	}
 	
-	
-	
-	public String getContentDescription() {
+	public String description() {
 		return "";
 	}
-	
-	
 	
 	public int getAmount() {
 		return this.amount;
