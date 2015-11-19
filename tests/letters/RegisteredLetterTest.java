@@ -20,6 +20,20 @@ public class RegisteredLetterTest extends LetterTest {
 		RegistredLetter testedLetter = new RegistredLetter(simpleLetter);
 		assertEquals(16, testedLetter.cost());
 	}
+	
+	@Test
+	public void receiverSendsAcknowledgment() {
+		Inhabitant sender = new Inhabitant("Sender", new City("Lille"), new BankAccount(1000));
+		InhabitantNbLetterSent receiver = new InhabitantNbLetterSent("Receiver", new City("Paris"), new BankAccount(1500));
+		
+		assertEquals(0, receiver.numberOfLetterSent);
+		
+		SimpleLetter simpleLetter = new SimpleLetter(sender, receiver, new TextContent("Bonjour"));
+		RegisteredLetterNbLetterSent registeredLetter = new RegisteredLetterNbLetterSent(simpleLetter);
+		registeredLetter.action();
+		
+		assertEquals(1, receiver.numberOfLetterSent);
+	}
 
 	@Override
 	public Letter<?> createLetter() {
@@ -30,3 +44,26 @@ public class RegisteredLetterTest extends LetterTest {
 	}
 
 }
+
+class InhabitantNbLetterSent extends Inhabitant {
+	
+	protected int numberOfLetterSent = 0;
+
+	public InhabitantNbLetterSent(String name, City city, BankAccount bankAccount) {
+		super(name, city, bankAccount);
+	}
+}
+
+class RegisteredLetterNbLetterSent extends RegistredLetter {
+
+	public RegisteredLetterNbLetterSent(Letter<?> letter) {
+		super(letter);
+	}
+	
+	@Override
+	public void action() {
+		super.action();
+		((InhabitantNbLetterSent) receiver).numberOfLetterSent++;
+	}
+}
+
