@@ -2,7 +2,8 @@ package city;
 /**
  * 
  * @author mahroug
- *
+ * 
+ *This class represents the bank account of an inhabitant and the possible transactions on the account
  */
 public class BankAccount {
 
