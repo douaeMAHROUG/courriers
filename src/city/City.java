@@ -25,8 +25,6 @@ public class City {
 	}
 
 	public void distributeLetters() {
-		// à revoir: faut peut etre ajouter cette liste : distibutorTmp 
-		//List<Letter<?>> distributorTmp = new ArrayList<Letter<?>>();
 		while(!this.postBox.isEmpty()){
 			this.postBox.get(0).getReceiver().receiveLetter((this.postBox.get(0)));
 			this.postBox.remove(0);
@@ -35,6 +33,14 @@ public class City {
 	
 	public boolean isEmpty(){
 		return this.postBox.isEmpty();
+	}
+	
+	public List<Inhabitant> getInhabitants(){
+		return inhabitants;
+	}
+	
+	public void addInhabitant(Inhabitant i){
+		this.inhabitants.add(i);
 	}
 	
 	public String toString() {
