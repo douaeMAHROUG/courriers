@@ -7,29 +7,29 @@ import org.junit.Test;
 import city.BankAccount;
 import city.City;
 import city.Inhabitant;
-import content.TextContent;
+import content.MoneyContent;
 import letters.Letter;
-import letters.SimpleLetter;
+import letters.PromissoryNote;
 
-public class SimpleLetterTest extends LetterTest {
+public class PromissoryNoteTest extends LetterTest {
 
 	@Test
-	public void testCostEqualsOne() {
+	public void testCostIsGreaterThanOne() {
 		Letter<?> testedLetter = createLetter();
-		assertEquals(1, testedLetter.cost());
+		assertTrue(testedLetter.cost() >= 1);
 	}
 	
 	@Test
-	public void testContentIsTextContent() {
+	public void testContentIsMoneyContent() {
 		Letter<?> testedLetter = createLetter();
-		assertTrue(testedLetter.getContent() instanceof TextContent);
+		assertTrue(testedLetter.getContent() instanceof MoneyContent);
 	}
 
 	@Override
 	public Letter<?> createLetter() {
 		Inhabitant sender = new Inhabitant("Sender", new City("Lille"), new BankAccount(1000));
 		Inhabitant receiver = new Inhabitant("Receiver", new City("Paris"), new BankAccount(1500));
-		return new SimpleLetter(sender, receiver, new TextContent("Bonjour"));
+		return new PromissoryNote(sender, receiver, new MoneyContent(10));
 	}
 
 }

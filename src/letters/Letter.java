@@ -29,6 +29,10 @@ public abstract class Letter<T extends Content> implements Content {
 		return receiver;
 	}
 	
+	public T getContent() {
+		return content;
+	}
+	
 	public abstract void action();
 	public abstract int cost();
 	public abstract String description();
