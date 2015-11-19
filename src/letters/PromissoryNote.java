@@ -5,6 +5,8 @@ import content.*;
  * 
  * @author mahroug
  *
+ * This class is a Promissory Note, it contains an amount of money 
+ * that's why it inherits from Letter<MoneyContent>
  */
 public class PromissoryNote extends Letter<MoneyContent> {
 
