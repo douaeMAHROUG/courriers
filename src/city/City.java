@@ -6,6 +6,7 @@ import letters.*;
  * 
  * @author mahroug
  *
+ *This class represents a city, each city has a name and contains a set of letters and a set of inhabitants
  */
 public class City {
 

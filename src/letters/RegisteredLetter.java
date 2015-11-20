@@ -2,6 +2,12 @@ package letters;
 import content.TextContent;
 import letters.SimpleLetter;
 
+/**
+ * 
+ * @author mahroug
+ *
+ * This class represents the RegisteredLetter is a concrete decorator
+ */
 public class RegisteredLetter extends LetterDecorator{
 
 	public RegisteredLetter(Letter<?> letter) {

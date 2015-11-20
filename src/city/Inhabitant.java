@@ -1,6 +1,13 @@
 package city;
 import letters.*;
 
+/**
+ * 
+ * @author mahroug
+ *
+ * This class represents an inhabitant.
+ * An inhabitant possesses a bank account and he belongs to a city.
+ */
 public class Inhabitant {
 
 	protected String name;

@@ -5,6 +5,7 @@ import letters.Letter;
  * 
  * @author mahroug
  *
+ * This class represents the LetterDecorator
  */
 
 public abstract class LetterDecorator extends Letter<Letter<?>> {
