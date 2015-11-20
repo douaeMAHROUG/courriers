@@ -10,37 +10,26 @@ import city.Inhabitant;
 import content.TextContent;
 
 public class RegisteredLetterTest extends LetterTest {
+	
+	Inhabitant receiver = new InhabitantNbLetterSent("Receiver", new City("Paris"), new BankAccount(1500));
 
 	@Test
 	public void testPriceIsFifteenEurosHigher() {
-		Inhabitant sender = new Inhabitant("Sender", new City("Lille"), new BankAccount(1000));
-		Inhabitant receiver = new Inhabitant("Receiver", new City("Paris"), new BankAccount(1500));
-		SimpleLetter simpleLetter = new SimpleLetter(sender, receiver, new TextContent("Bonjour"));
-		assertEquals(1, simpleLetter.cost());
-		RegisteredLetter testedLetter = new RegisteredLetter(simpleLetter);
-		assertEquals(16, testedLetter.cost());
+		Letter<?> testedLetter = createLetter();
+		assertEquals(((Letter<?>)testedLetter.content).cost()+15, testedLetter.cost());
 	}
 	
 	@Test
 	public void receiverSendsAcknowledgment() {
-		Inhabitant sender = new Inhabitant("Sender", new City("Lille"), new BankAccount(1000));
-		InhabitantNbLetterSent receiver = new InhabitantNbLetterSent("Receiver", new City("Paris"), new BankAccount(1500));
-		
-		assertEquals(0, receiver.numberOfLetterSent);
-		
-		SimpleLetter simpleLetter = new SimpleLetter(sender, receiver, new TextContent("Bonjour"));
-		RegisteredLetterNbLetterSent registeredLetter = new RegisteredLetterNbLetterSent(simpleLetter);
-		registeredLetter.action();
-		
-		assertEquals(1, receiver.numberOfLetterSent);
+		assertEquals(0, ((InhabitantNbLetterSent)receiver).numberOfLetterSent);
+		createLetter().action();	
+		assertEquals(1, ((InhabitantNbLetterSent)receiver).numberOfLetterSent);
 	}
 
 	@Override
 	public Letter<?> createLetter() {
-		Inhabitant sender = new Inhabitant("Sender", new City("Lille"), new BankAccount(1000));
-		Inhabitant receiver = new Inhabitant("Receiver", new City("Paris"), new BankAccount(1500));
 		SimpleLetter simpleLetter = new SimpleLetter(sender, receiver, new TextContent("Bonjour"));
-		return new RegisteredLetter(simpleLetter);
+		return new RegisteredLetterNbLetterSent(simpleLetter);
 	}
 
 }
@@ -54,7 +43,7 @@ class InhabitantNbLetterSent extends Inhabitant {
 	}
 }
 
-class RegisteredLetterNbLetterSent extends RegisteredLetter {
+class RegisteredLetterNbLetterSent extends RegisteredLetter<Letter<?>> {
 
 	public RegisteredLetterNbLetterSent(Letter<?> letter) {
 		super(letter);

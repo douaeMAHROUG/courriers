@@ -1,14 +1,15 @@
 package letters;
+
 /**
  * 
- * @author mahroug
  *
  * This class represents the UrgentLetter, it is a concrete decorator.
+ * Any letter can be changed as an UrgentLetter, the action doesn't change and the cost is doubled.
  */
 
-public class UrgentLetter extends LetterDecorator {
+public class UrgentLetter<T extends Letter<?>> extends LetterDecorator {
 	
-	public UrgentLetter(Letter<?> letter) {
+	public UrgentLetter(T letter) {
 		super(letter);
 	}
 	

@@ -1,5 +1,9 @@
 package letters;
 
+/**
+ * 
+ * An AcknowledgementOfReceipt is sent whenever an Inhabitant receives a registered letter.
+ */
 public class AcknowledgementOfReceipt extends LetterDecorator {
 
 	public AcknowledgementOfReceipt(SimpleLetter letter) {

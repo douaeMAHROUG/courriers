@@ -3,8 +3,7 @@ import city.*;
 import content.TextContent;
 /**
  * 
- * @author mahroug
- *
+ * A simple letter that costs 1 euro and contains a simple Text
  */
 public class SimpleLetter extends Letter<TextContent> {
 

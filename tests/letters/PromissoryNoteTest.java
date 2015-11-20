@@ -3,10 +3,6 @@ package letters;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-
-import city.BankAccount;
-import city.City;
-import city.Inhabitant;
 import content.MoneyContent;
 import letters.Letter;
 import letters.PromissoryNote;
@@ -24,11 +20,18 @@ public class PromissoryNoteTest extends LetterTest {
 		Letter<?> testedLetter = createLetter();
 		assertTrue(testedLetter.getContent() instanceof MoneyContent);
 	}
+	
+	@Test
+	public void testMoneyIsDebitedAndCredited() {
+		Letter<?> testedLetter = createLetter();
+		testedLetter.action();
+		assertEquals(990, sender.getBalance());
+		// The receiver's balance should be 1509 since he sent a thanks letter for 1€
+		assertEquals(1509, receiver.getBalance());
+	}
 
 	@Override
 	public Letter<?> createLetter() {
-		Inhabitant sender = new Inhabitant("Sender", new City("Lille"), new BankAccount(1000));
-		Inhabitant receiver = new Inhabitant("Receiver", new City("Paris"), new BankAccount(1500));
 		return new PromissoryNote(sender, receiver, new MoneyContent(10));
 	}
 

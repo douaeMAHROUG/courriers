@@ -4,7 +4,6 @@ import content.Content;
 
 /**
  * 
- * @author mahroug
  *
  * @param <T> : Type of letter content
  */
@@ -33,6 +32,9 @@ public abstract class Letter<T extends Content> implements Content {
 		return content;
 	}
 	
+	/**
+	 * This method is triggered when an inhabitant receives the letter.
+	 */
 	public abstract void action();
 	public abstract int cost();
 	public abstract String description();

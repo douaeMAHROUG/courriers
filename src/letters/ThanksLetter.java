@@ -1,5 +1,8 @@
 package letters;
 
+/**
+ * This is sent whenever a promissory note was received.
+ */
 public class ThanksLetter extends LetterDecorator {
 
 	public ThanksLetter(SimpleLetter letter) {

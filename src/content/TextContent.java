@@ -1,8 +1,6 @@
 package content;
 /**
- * 
- * @author mahroug
- *
+ * This class implementing Content represents a simple text represented by a String.
  */
 public class TextContent implements Content {
 	

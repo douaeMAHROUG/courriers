@@ -1,10 +1,9 @@
 package city;
 import java.util.ArrayList;
+
 import java.util.List;
 import letters.*;
 /**
- * 
- * @author mahroug
  *
  *This class represents a city, each city has a name and contains a set of letters and a set of inhabitants
  */
@@ -20,6 +19,10 @@ public class City {
 		this.inhabitants=new ArrayList<Inhabitant>();
 	}
 
+	/**
+	 * This method debits the sender's BankAccount, then it adds the letter to the postbox and prints a message
+	 * @param letter
+	 */
 	public void sendLetter(Letter<?> letter) {
 		letter.getSender().debit(letter.cost());
 		this.postBox.add(letter);
@@ -29,6 +32,9 @@ public class City {
 				letter.getSender().getBalance());
 	}
 
+	/**
+	 * This method distributes every letter in the postbox until it's empty
+	 */
 	public void distributeLetters() {
 		List<Letter<?>> lettersToBeSent = new ArrayList<>(postBox);
 		postBox.clear();

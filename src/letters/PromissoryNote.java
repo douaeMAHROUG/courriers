@@ -3,10 +3,12 @@ import city.Inhabitant;
 import content.*;
 /**
  * 
- * @author mahroug
  *
  * This class is a Promissory Note, it contains an amount of money 
  * that's why it inherits from Letter<MoneyContent>
+ * The cost of this letter is 1 + 1% of the amount
+ * When the note is received, the sender credits the amount to the receiver's account.
+ * Then, the receiver sends a ThanksLetter.
  */
 public class PromissoryNote extends Letter<MoneyContent> {
 
@@ -15,11 +17,17 @@ public class PromissoryNote extends Letter<MoneyContent> {
 		super(sender, receiver, content);
 	}
 
+	/**
+	 * It returns 1 + 1% of the amount
+	 */
 	@Override
 	public int cost() {
 		return ( 1 + ((Integer)this.content.getAmount())/100);
 	}
 
+	/**
+	 * It debits the sender, credits the receiver and makes him send a ThanksLetter.
+	 */
 	@Override
 	public void action() {
 		int amount = content.getAmount();

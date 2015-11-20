@@ -2,8 +2,6 @@ package city;
 import letters.*;
 
 /**
- * 
- * @author mahroug
  *
  * This class represents an inhabitant.
  * An inhabitant possesses a bank account and he belongs to a city.
@@ -20,6 +18,10 @@ public class Inhabitant {
 		this.bankAccount = bankAccount;
 	}
 
+	/**
+	 * This method prints a message and triggers the letter's action method
+	 * @param letter
+	 */
 	public void receiveLetter(Letter<?> letter) {
 		System.out.println("<- " + this + " receives " + letter.description() + " from " + letter.getSender());
 		letter.action();

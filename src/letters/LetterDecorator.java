@@ -3,9 +3,8 @@ package letters;
 import letters.Letter;
 /**
  * 
- * @author mahroug
  *
- * This class represents the LetterDecorator
+ * A LetterDecorator can be used to add certain properties to a letter.
  */
 
 public abstract class LetterDecorator extends Letter<Letter<?>> {

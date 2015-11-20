@@ -4,11 +4,12 @@ import letters.SimpleLetter;
 
 /**
  * 
- * @author mahroug
  *
  * This class represents the RegisteredLetter is a concrete decorator
+ * A RegisteredLetter costs the decorated letter's cost plus 15 euros
+ * When it's received, the receiver sends an acknoledgement of receipt to the sender.
  */
-public class RegisteredLetter extends LetterDecorator{
+public class RegisteredLetter<T extends Letter<?>> extends LetterDecorator{
 
 	public RegisteredLetter(Letter<?> letter) {
 		super(letter);

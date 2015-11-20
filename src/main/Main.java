@@ -11,6 +11,15 @@ import letters.RegisteredLetter;
 import letters.SimpleLetter;
 import letters.UrgentLetter;
 
+/**
+ * This main class simulates how a city works.
+ * It first creates a city,
+ * then 100 inhabitants are created and added to it.
+ * Every day, during k days (randomly picked between 1 and 7), a random number of inhabitants (from 1 to 7 again) send
+ * a letter (of a random type) to a random inhabitant.
+ * Eventually, this simulation can last for more than k days as these letters can trigger replies which are distributed
+ * the next day.
+ */
 public class Main {
 	
 	private static Random r = new Random();
@@ -74,7 +83,7 @@ public class Main {
 		return new PromissoryNote(randomSender, randomReceiver, new MoneyContent(r.nextInt(1000)+1));
 	}
 	
-	private static RegisteredLetter createRegisteredLetter(Inhabitant randomSender, Inhabitant randomReceiver) {
+	private static RegisteredLetter<Letter<?>> createRegisteredLetter(Inhabitant randomSender, Inhabitant randomReceiver) {
 		int randomNumber = r.nextInt(2);
 		Letter<?> contentLetter = null;
 		if(randomNumber == 0) {
@@ -82,10 +91,10 @@ public class Main {
 		} else if (randomNumber == 1) {
 			contentLetter= createPromissoryNote(randomSender, randomReceiver);
 		}
-		return new RegisteredLetter(contentLetter);
+		return new RegisteredLetter<Letter<?>>(contentLetter);
 	}
 	
-	private static UrgentLetter createUrgentLetter(Inhabitant randomSender, Inhabitant randomReceiver) {
+	private static UrgentLetter<Letter<?>> createUrgentLetter(Inhabitant randomSender, Inhabitant randomReceiver) {
 		int randomNumber = r.nextInt(3);
 		Letter<?> contentLetter = null;
 		if(randomNumber == 0) {
@@ -95,6 +104,6 @@ public class Main {
 		} else if (randomNumber == 2) {
 			contentLetter = createRegisteredLetter(randomSender, randomReceiver);
 		}
-		return new UrgentLetter(contentLetter);
+		return new UrgentLetter<Letter<?>>(contentLetter);
 	}
 }

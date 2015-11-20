@@ -1,8 +1,6 @@
 package content;
 /**
- * 
- * @author hajar + mahroug
- *
+ * This class implementing content represents an amount of money. It can be used for promissory notes.
  */
 public class MoneyContent implements Content {
 	
