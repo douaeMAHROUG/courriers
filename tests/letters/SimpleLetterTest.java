@@ -14,7 +14,7 @@ public class SimpleLetterTest extends LetterTest {
 		Letter<?> testedLetter = createLetter();
 		assertEquals(1, testedLetter.cost());
 	}
-	
+
 	@Test
 	public void testContentIsTextContent() {
 		Letter<?> testedLetter = createLetter();

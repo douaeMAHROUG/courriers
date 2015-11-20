@@ -1,11 +1,13 @@
 package content;
+
 /**
- * This class implementing content represents an amount of money. It can be used for promissory notes.
+ * This class implementing content represents an amount of money. It can be used
+ * for promissory notes.
  */
 public class MoneyContent implements Content {
-	
+
 	protected int amount;
-	
+
 	public MoneyContent(int amount) {
 		this.amount = amount;
 	}
@@ -16,7 +18,7 @@ public class MoneyContent implements Content {
 
 	@Override
 	public String description() {
-		return "a money content ("+amount+")";
+		return "a money content (" + amount + ")";
 	}
 
 }

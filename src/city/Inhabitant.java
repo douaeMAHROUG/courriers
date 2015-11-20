@@ -1,18 +1,19 @@
 package city;
+
 import letters.*;
 
 /**
  *
- * This class represents an inhabitant.
- * An inhabitant possesses a bank account and he belongs to a city.
+ * This class represents an inhabitant. An inhabitant possesses a bank account
+ * and he belongs to a city.
  */
 public class Inhabitant {
 
 	protected String name;
 	protected City city;
 	protected BankAccount bankAccount;
-	
-	public Inhabitant(String name,City city, BankAccount bankAccount) {
+
+	public Inhabitant(String name, City city, BankAccount bankAccount) {
 		this.name = name;
 		this.city = city;
 		this.bankAccount = bankAccount;
@@ -20,6 +21,7 @@ public class Inhabitant {
 
 	/**
 	 * This method prints a message and triggers the letter's action method
+	 * 
 	 * @param letter
 	 */
 	public void receiveLetter(Letter<?> letter) {
@@ -34,7 +36,7 @@ public class Inhabitant {
 	public void debit(int amount) {
 		this.bankAccount.debit(amount);
 	}
-	
+
 	public int getBalance() {
 		return bankAccount.total;
 	}
@@ -42,7 +44,7 @@ public class Inhabitant {
 	public String toString() {
 		return name;
 	}
-	
+
 	public City getCity() {
 		return city;
 	}

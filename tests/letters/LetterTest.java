@@ -11,11 +11,11 @@ import city.Inhabitant;
 import letters.Letter;
 
 public abstract class LetterTest {
-	
+
 	protected City city = new City("Lille");
 	protected Inhabitant sender = new Inhabitant("Sender", city, new BankAccount(1000));
 	protected Inhabitant receiver = new Inhabitant("Receiver", city, new BankAccount(1500));
-	
+
 	public abstract Letter<?> createLetter();
 
 	@Before

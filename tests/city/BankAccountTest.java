@@ -21,21 +21,21 @@ public class BankAccountTest {
 		testedBankAccount.credit(10);
 		assertEquals(10, testedBankAccount.getTotal());
 	}
-	
-	@Test(expected=IllegalArgumentException.class)
+
+	@Test(expected = IllegalArgumentException.class)
 	public void testCreditException() {
 		BankAccount testedBankAccount = new BankAccount(0);
 		testedBankAccount.credit(-10);
 	}
-	
+
 	@Test
 	public void testDebit() {
 		BankAccount testedBankAccount = new BankAccount(10);
 		testedBankAccount.debit(10);
 		assertEquals(0, testedBankAccount.getTotal());
 	}
-	
-	@Test(expected=IllegalArgumentException.class)
+
+	@Test(expected = IllegalArgumentException.class)
 	public void testDebitException() {
 		BankAccount testedBankAccount = new BankAccount(10);
 		testedBankAccount.debit(-10);

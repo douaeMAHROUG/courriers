@@ -14,19 +14,20 @@ public class PromissoryNoteTest extends LetterTest {
 		Letter<?> testedLetter = createLetter();
 		assertTrue(testedLetter.cost() >= 1);
 	}
-	
+
 	@Test
 	public void testContentIsMoneyContent() {
 		Letter<?> testedLetter = createLetter();
 		assertTrue(testedLetter.getContent() instanceof MoneyContent);
 	}
-	
+
 	@Test
 	public void testMoneyIsDebitedAndCredited() {
 		Letter<?> testedLetter = createLetter();
 		testedLetter.action();
 		assertEquals(990, sender.getBalance());
-		// The receiver's balance should be 1509 since he sent a thanks letter for 1€
+		// The receiver's balance should be 1509 since he sent a thanks letter
+		// for 1€
 		assertEquals(1509, receiver.getBalance());
 	}
 

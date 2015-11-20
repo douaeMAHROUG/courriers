@@ -11,7 +11,7 @@ public class UrgentLetterTest extends LetterTest {
 	@Test
 	public void testCostIsTwiceAsHigh() {
 		Letter<?> testedLetter = createLetter();
-		assertEquals(((Letter<?>)testedLetter.content).cost()*2, testedLetter.cost());
+		assertEquals(((Letter<?>) testedLetter.content).cost() * 2, testedLetter.cost());
 	}
 
 	@Override
