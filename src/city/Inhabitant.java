@@ -1,10 +1,6 @@
 package city;
 import letters.*;
-/**
- * 
- * @author mahroug
- *
- */
+
 public class Inhabitant {
 
 	protected String name;
@@ -16,8 +12,9 @@ public class Inhabitant {
 		this.city = city;
 		this.bankAccount = bankAccount;
 	}
-	// a revoir
+
 	public void receiveLetter(Letter<?> letter) {
+		System.out.println("<- " + this + " receives " + letter.description() + " from " + letter.getSender());
 		letter.action();
 	}
 
@@ -28,9 +25,13 @@ public class Inhabitant {
 	public void debit(int amount) {
 		this.bankAccount.debit(amount);
 	}
+	
+	public int getBalance() {
+		return bankAccount.total;
+	}
 
 	public String toString() {
-		return "Inhabitant: "+this.name;
+		return name;
 	}
 	
 	public City getCity() {

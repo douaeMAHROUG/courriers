@@ -25,6 +25,6 @@ public class SimpleLetter extends Letter<TextContent> {
 	
 	@Override
 	public String description() {
-		return "a simple letter whose content is " + this.content;
+		return "a simple letter whose content is " + content.description();
 	}
 }

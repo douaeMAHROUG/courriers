@@ -2,32 +2,27 @@ package letters;
 import content.TextContent;
 import letters.SimpleLetter;
 
-/**
- * 
- * @author mahroug
- *
- */
-
 public class RegisteredLetter extends LetterDecorator{
 
 	public RegisteredLetter(Letter<?> letter) {
-		super(letter.getSender(), letter.getReceiver(), letter.content);
-		this.letter = letter;
+		super(letter);
 	}
 
 	@Override
 	public int cost() {
-		return this.letter.cost() + 15;
+		return content.cost() + 15;
 	}
 
 	@Override
 	public void action() {
-		SimpleLetter simpleLetter = new SimpleLetter(sender, receiver,new TextContent("Aknowledgment of receipt"));
-		this.getReceiver().getCity().sendLetter(simpleLetter);
+		AcknowledgementOfReceipt acknowledgement = new AcknowledgementOfReceipt(
+				new SimpleLetter(receiver, sender, new TextContent("acknowledgement of receipt for " + description()))
+				);
+		getReceiver().getCity().sendLetter(acknowledgement);
 	}
 
 	@Override
 	public String description() {
-		return "a registered letter whose content is " + this.letter.toString();
+		return "a registered letter whose content is " + content.description();
 	}
 }

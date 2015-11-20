@@ -6,19 +6,15 @@ package content;
  */
 public class TextContent implements Content {
 	
-	protected String description;
-	
-	public TextContent(){
-		this("bla bla");
-	}
+	protected String text;
 	
 	public TextContent(String description){
-		this.description=description;
+		this.text=description;
 	}
 
 	@Override
 	public String description() {
-		return "text content ("+this.description+")";
+		return "a text content ("+text+")";
 	}
 
 }

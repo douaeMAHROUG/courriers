@@ -18,7 +18,7 @@ public class MoneyContent implements Content {
 
 	@Override
 	public String description() {
-		return "  "+amount;
+		return "a money content ("+amount+")";
 	}
 
 }

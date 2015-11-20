@@ -20,16 +20,18 @@ public class PromissoryNote extends Letter<MoneyContent> {
 
 	@Override
 	public void action() {
-		int amount = ((Integer)this.content.getAmount());
-		SimpleLetter thanksLetter = new SimpleLetter(this.receiver,this.sender,new TextContent("Thank you for money)"));
-		this.sender.debit(amount);
-		this.receiver.credit(amount);
-		this.receiver.getCity().sendLetter(thanksLetter);
+		int amount = content.getAmount();
+		ThanksLetter thanksLetter = new ThanksLetter(
+				new SimpleLetter(receiver,sender,new TextContent("thanks for " + description()))
+				);
+		sender.debit(amount);
+		receiver.credit(amount);
+		receiver.getCity().sendLetter(thanksLetter);
 	}	
 	
 	@Override
 	public String description() {
-		return "an promissory letter whose content is a money content";
+		return "a promissory note letter whose content is " + content.description();
 	}
 
 }

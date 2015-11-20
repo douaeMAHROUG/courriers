@@ -1,6 +1,5 @@
 package letters;
-import content.Content;
-import city.Inhabitant;
+
 import letters.Letter;
 /**
  * 
@@ -8,11 +7,9 @@ import letters.Letter;
  *
  */
 
-public abstract class LetterDecorator extends Letter<Content> {
+public abstract class LetterDecorator extends Letter<Letter<?>> {
 
-	protected Letter<?> letter;
-	
-	public LetterDecorator(Inhabitant sender, Inhabitant receiver,Content content) {
-		super(sender, receiver, content);
+	public LetterDecorator(Letter<?> letter) {
+		super(letter.getSender(), letter.getReceiver(), letter);
 	}
 }

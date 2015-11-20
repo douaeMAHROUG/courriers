@@ -22,12 +22,18 @@ public class City {
 	public void sendLetter(Letter<?> letter) {
 		letter.getSender().debit(letter.cost());
 		this.postBox.add(letter);
+		System.out.println("-> " + letter.getSender() + " mails " + letter.description() + " to " + letter.getReceiver() +
+				" for a cost of " + letter.cost() + " euros");
+		System.out.println(" - " + letter.cost() + " are debited from " + letter.getSender() + " whose balance is now " +
+				letter.getSender().getBalance());
 	}
 
 	public void distributeLetters() {
-		while(!this.postBox.isEmpty()){
-			this.postBox.get(0).getReceiver().receiveLetter((this.postBox.get(0)));
-			this.postBox.remove(0);
+		List<Letter<?>> lettersToBeSent = new ArrayList<>(postBox);
+		postBox.clear();
+		while(!lettersToBeSent.isEmpty()){
+			lettersToBeSent.get(0).getReceiver().receiveLetter(lettersToBeSent.get(0));
+			lettersToBeSent.remove(0);
 		}	
 	}
 	
@@ -37,6 +43,10 @@ public class City {
 	
 	public List<Inhabitant> getInhabitants(){
 		return inhabitants;
+	}
+	
+	public int size() {
+		return inhabitants.size();
 	}
 	
 	public void addInhabitant(Inhabitant i){

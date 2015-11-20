@@ -8,21 +8,20 @@ package letters;
 public class UrgentLetter extends LetterDecorator {
 	
 	public UrgentLetter(Letter<?> letter) {
-		super(letter.getSender(), letter.getReceiver(), letter);
-		this.letter = letter;
+		super(letter);
 	}
 	
 	@Override
 	public int cost() {
-		return this.letter.cost() * 2;
+		return content.cost() * 2;
 	}
 	@Override
 	public void action() {
-		this.letter.action();
+		content.action();
 	}
 
 	@Override
 	public String description() {
-		return "an urgent letter whose content is a "+ this.letter.description();
+		return "an urgent letter whose content is "+ content.description();
 	}
 }
